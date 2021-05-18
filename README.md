@@ -36,9 +36,10 @@ aufgebaut wurde. <br>
 Das dauert bei den 2.x" Displays ein paar Sekunden länger, als man Änderungen im Display
 wahrnehmen kann.<br>
 
-**Gehäuse für den 3D-Druck**<bt>
+**Gehäuse für den 3D-Druck**<br>
 Im Unterordner [stl](https://github.com/cultur98/ESP32_Vorrat/blob/main/stl/) befinden sich Daten für den 3D-Druck der Gehäuse.<br>
-Die Displays der 2.7" Variante sind unsauber verklebt. Bei jedem ESP sitzt die Anzeige mehr oder weniger schief auf der Platine. Daher muss bei der 2.7" Variante das Fenster an den jeweiligen ESP angeapsst werden.
+Die Displays der 2.7" Variante sind unsauber verklebt. Bei jedem ESP sitzt die Anzeige mehr oder weniger schief auf der Platine (s.o.).<br>
+ Daher muss bei der 2.7" Variante das Fenster an den jeweiligen ESP angeapsst werden.
 
 ## Konfiguration der Software
 
