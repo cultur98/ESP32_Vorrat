@@ -38,7 +38,8 @@ wahrnehmen kann.<br>
 
 **Gehäuse für den 3D-Druck**<br>
 Im Unterordner [stl](https://github.com/cultur98/ESP32_Vorrat/blob/main/stl/) befinden sich Daten für den 3D-Druck der Gehäuse.<br>
-Die Displays der 2.7" Variante sind unsauber verklebt. Bei jedem ESP sitzt die Anzeige mehr oder weniger schief auf der Platine (s.o.).<br>
+Die Displays der 2.7" Variante sind unsauber verklebt.<br>
+Bei jedem ESP sitzt die Anzeige mehr oder weniger schief auf der Platine (s.o.).<br>
  Daher muss bei der 2.7" Variante das Fenster an den jeweiligen ESP angeapsst werden.
 
 ## Konfiguration der Software
