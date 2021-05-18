@@ -158,13 +158,7 @@ Bei diesen Versionen ist kein Online-Update möglich.
 
 ## Danke!
 
-Ohne eure Anregungen und Beiträge wäre dieses Projekt nie zustande gekommen.
-
-
-Sandra hat damit angefangen ihre Vorräte in einer Liste zu verwalten. Was mich wiederum zur [Vorrat-App](https://play.google.com/store/apps/details?id=de.sebag.Vorrat) gebracht hat.
-Da sie kein Android Smartphone hat, entstand eine Schnittstelle für die Verwaltung der Vorräte in einer Google Tabelle.
-
-Moni hatte die Idee, die Vorräte auf einem bei mir rumliegenden ePaper-Display anzuzeigen und dies am Kühlschrank anzubringen. 
+Ohne zahlreiche Anregungen und Beiträge wäre dieses Projekt nie zustande gekommen.
 
 Besonderer Dank gilt Rainard Buchmann, dem Entwickler der großartigen [Vorrat-App](https://play.google.com/store/apps/details?id=de.sebag.Vorrat). Er hat das Projekt von Anfang an unterstützt und sofort eine Schnittstelle zu den Vorräten entwickelt.<br>
 Mit viel Leidenschaft und Sachverstand hat er viele nützliche Funktionen angeregt und zahlreiche Fehler gefunden.<br>
