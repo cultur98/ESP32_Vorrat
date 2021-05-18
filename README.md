@@ -4,7 +4,7 @@ Die Verwaltung der Lebensmittel erfolgt über die [Android-App Vorrat](https://p
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/vorrat_app.png" alt="Vorrat App" width="200"/>
 
-Anegzeigt werden alle Vorräte, die ein MHD enthalten, die bereits abgelaufen sind oder bald (mit konfigurierbarer Tagesanzahl) ablaufen werden.
+Angezeigt werden alle Vorräte, die ein MHD enthalten, die bereits abgelaufen sind oder bald (mit konfigurierbarer Tagesanzahl) ablaufen werden.
 
 Wenn eine Batterie angeschlossen ist, kann der Controller zu bestimmten Zeiten geweckt werden,
 um die Anzeige aktualisieren.
