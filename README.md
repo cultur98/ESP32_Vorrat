@@ -87,7 +87,7 @@ das Mindesthaltbarkeitsdatum.<br>
 Der Inhalt der Kopfzeile wird nicht eingelesen.a
 
 _Anmerkung_: <br>
-Der ESP zeigt nur die Produkte aus einer Quelle an.<br>Der ESP zeigt nur die Produkte aus einer Quelle an.<br>
+Der ESP zeigt nur die Produkte aus einer Quelle an.<br>
 Hat man sowohl die Vorrat ID angegeben als auch gültige Daten für die Google Tabelle hinterlegt, dann
 werden die Produkte aus der Vorrat-App angezeigt.
 
