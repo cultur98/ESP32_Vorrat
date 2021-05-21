@@ -1,12 +1,9 @@
 # ESP32_Vorrat
 This piece of software allows you to show your goods on a ePaper display.
 For food management you can either use the [Android-App Vorrat](https://play.google.com/store/apps/details?id=de.sebag.Vorrat) or a Google table.
+
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/vorrat_app.png" alt="Vorrat App" width="200"/>
 
-
-
-Mit dieser Software kann man sich die Liste seiner Lebensmittelvorräte auf einem ePaper Display anzeigen lassen.
-Die Verwaltung der Lebensmittel erfolgt über die [Android-App Vorrat](https://play.google.com/store/apps/details?id=de.sebag.Vorrat) oder in einer Google Tabelle.
 
 
 Angezeigt werden alle Vorräte, die ein MHD enthalten, die bereits abgelaufen sind oder bald (mit konfigurierbarer Tagesanzahl) ablaufen werden.
@@ -16,7 +13,7 @@ um die Anzeige aktualisieren.
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/LilyGo_vergleich.png" alt="ESP32_Vorrat" width="700"/>
 
-## Unterstützte Displays
+## Suported displays
 | LilyGo T5 2.7" | LilyGo T5 2.9" | LilyGo T5 4.7" |
 |:--:|:--:|:--:|
 |  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/lilygo_t5_2.7.png" alt="LilyGo T5 2.7" width="150"/> |  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/lilygo_t5_2.9.png" alt="LilyGo T5 2.9" width="150"/> | <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/lilygo_t5_4.7.png" alt="LilyGo T5 4.7" width="300"/> |
@@ -88,7 +85,9 @@ Die Tabelle muss diesen Aufbau haben:
 
 Die erste Spalte enthält den Produktnamen, die zweite den Lagerort und die dritte
 das Mindesthaltbarkeitsdatum.<br>
-Der Inhalt der Kopfzeile wird nicht eingelesen.<br>
+Der Inhalt der Kopfzeile wird nicht eingelesen.
+
+_Anmerkung_: <br>
 Der ESP zeigt nur die Produkte aus einer Quelle an.<br>
 Hat man sowohl die Vorrat ID angegeben als auch gültige Daten für die Google Tabelle hinterlegt, dann
 werden die Produkte aus der Vorrat-App angezeigt.
