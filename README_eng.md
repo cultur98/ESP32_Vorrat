@@ -4,7 +4,7 @@ For food management you can either use the [Android-App Vorrat](https://play.goo
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/vorrat_app.png" alt="Vorrat App" width="200"/>
 
-
+The display shows all goods which have a BYD. On top you can find the ones which are 
 
 Angezeigt werden alle Vorräte, die ein MHD enthalten, die bereits abgelaufen sind oder bald (mit konfigurierbarer Tagesanzahl) ablaufen werden.
 

@@ -87,7 +87,8 @@ das Mindesthaltbarkeitsdatum.<br>
 Der Inhalt der Kopfzeile wird nicht eingelesen.a
 
 _Anmerkung_: <br>
-Der ESP zeigt nur die Produkte aus einer Quelle an.<br>
+Der ESP zeigt nur die Produkte aus einer Quelle an.
+<br>
 Hat man sowohl die Vorrat ID angegeben als auch gültige Daten für die Google Tabelle hinterlegt, dann
 werden die Produkte aus der Vorrat-App angezeigt.
 
@@ -172,4 +173,5 @@ In der Datei [wifiman.cpp](https://github.com/cultur98/ESP32_Vorrat/blob/main/sr
 
 Die Webschnittstelle zum Konfigurieren der Software basiert auf [Gerald Lechners](https://github.com/GerLech) [WebConfig](https://github.com/GerLech/WebConfig). Eine sehr gute Grundlage, die ich mit wenigen Änderungen an meine Bedürfnisse anpassen konnte.
 
-Die Treiber für die Displays waren einfach zu integrieren. Dank an [olikraus](https://github.com/olikraus/u8g2) [ZinggJM](https://github.com/ZinggJM/GxEPD2) und [LilyGo](https://github.com/Xinyuan-LilyGO/LilyGo-EPD47).
+Die verfügbaren Treiber für die unterstützten Displays waren einfach zu integrieren. <br>
+Daher Dank an [olikraus](https://github.com/olikraus/u8g2), [ZinggJM](https://github.com/ZinggJM/GxEPD2) und [LilyGo](https://github.com/Xinyuan-LilyGO/LilyGo-EPD47).
