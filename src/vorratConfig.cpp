@@ -424,6 +424,14 @@ void init_params_ger()
 #endif
   "},"
   "{"
+  "'name':'batt_offset',"
+  "'label':'Abstand Batteriezustand',"
+  "'type':");
+  params += String(INPUTNUMBER);
+  params += F(","
+  "'default':'120'"
+  "},"
+  "{"
   "'name':'version_offset',"
   "'label':'Abstand Versionsnummer',"
   "'type':");
@@ -865,6 +873,14 @@ void init_params_eng()
 #else
   "'default':'55'"
 #endif
+  "},"
+  "{"
+  "'name':'batt_offset',"
+  "'label':'Battery Status Offset',"
+  "'type':");
+  params += String(INPUTNUMBER);
+  params += F(","
+  "'default':'120'"
   "},"
   "{"
   "'name':'version_offset',"

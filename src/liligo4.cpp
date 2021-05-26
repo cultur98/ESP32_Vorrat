@@ -27,6 +27,7 @@
 #include <SD.h>
 
 #include "vorrat_logo.h"
+//#include "batty.h"
 
 #include "RobotoCondensed_14.h"
 #include "RobotoCondensed_16.h"
@@ -45,8 +46,9 @@
 #define SD_CS               15
 
 uint8_t *framebuffer;
-int vref = 1100;
-float batt_voltage = 0.0;
+//int vref = 1100;
+
+//float batt_voltage = 0.0;
 
 #define SMALL_DELAY 50
 
@@ -56,15 +58,15 @@ float batt_voltage = 0.0;
 void EPD_init(int &width, int &height)
 {
   TRACE1();
+  /*
   // Correct the ADC reference voltage
-
   esp_adc_cal_characteristics_t adc_chars;
   esp_adc_cal_value_t val_type = esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_12, 1100, &adc_chars);
   if (val_type == ESP_ADC_CAL_VAL_EFUSE_VREF) {
       Serial.printf("eFuse Vref:%u mV", adc_chars.vref);
       vref = adc_chars.vref;
   }
-
+*/
   epd_init();
   framebuffer = (uint8_t *)ps_calloc(sizeof(uint8_t), EPD_WIDTH * EPD_HEIGHT / 2);
   if (!framebuffer) {
@@ -96,10 +98,11 @@ void EPD_enter()
   TRACE1();
   epd_poweron();
   epd_clear();
+  /*
   uint16_t v = analogRead(BATT_PIN);
   batt_voltage = ((float)v / 4095.0) * 2.0 * 3.3 * (vref / 1000.0);
-  Serial.println(batt_voltage);
-
+  DUMP1(batt_voltage);
+  */
   memset(framebuffer, 0xFF, EPD_WIDTH * EPD_HEIGHT / 2);
   epd_clear();
   epd_fill_rect(0, 0, EPD_WIDTH, EPD_HEIGHT, 255, framebuffer);

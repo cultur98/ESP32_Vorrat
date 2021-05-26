@@ -14,6 +14,7 @@
 #include "lilygo.h"
 #include "ota.h"
 #include "deep_sleep_helper.h"
+#include "batty.h"
 
 // enable debug messages on the console
 #define ARDUINOTRACE_ENABLE 1  
@@ -27,6 +28,7 @@ TaskHandle_t TickTask;
 int language = _GER_;
 Button2 button1 = Button2(BUTTON_1);
 Button2 button2 = Button2(BUTTON_2);
+Batty myBatt;
 
 int the_page = 0;
 uint32_t timer_ctr = 0;
@@ -278,6 +280,8 @@ void setup() {
     show_config = false;
     ota_update = false;
   }
+  myBatt.init();
+  myBatt.read();
   has_valid_config = WiFiManager_loadConfigData();
   myEpaper.init();
   if(has_valid_config == false)

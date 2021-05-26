@@ -23,6 +23,7 @@
 #include <Fonts/FreeMonoBold9pt7b.h>
 #include <U8g2_for_Adafruit_GFX.h>
 
+
 #ifdef LILYGO_21
 GxEPD2_3C<GxEPD2_213c, GxEPD2_213c::HEIGHT> display(GxEPD2_213c(/*CS=5*/ SS, /*DC=*/ 17, /*RST=*/ 16, /*BUSY=*/ 4));
 #endif
@@ -44,8 +45,6 @@ U8G2_FOR_ADAFRUIT_GFX u8g2Fonts;
 #include "ArduinoTrace.h"
 #include "Logger.h"
 #include "wifiman.h"
-
-float batt_voltage = 0.0;
 
 void EPD_init(int &width, int &height)
 {
@@ -73,9 +72,11 @@ void EPD_orient(int orientation)
   display.setRotation(orientation);
 }
 
+
 void EPD_enter()
 {
   TRACE1();
+
   display.firstPage();
 }
 

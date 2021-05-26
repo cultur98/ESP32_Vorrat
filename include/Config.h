@@ -13,10 +13,17 @@
 #ifdef LILYGO_47
 #define BUTTON_1      34
 #define BUTTON_2      35
+#define BAT_SENSE_PIN A0
+#define BAT_GAIN 2.0
 #else
 #define BUTTON_1      37
 #define BUTTON_2      38
+#define BAT_GAIN 1.86
+#define BAT_SENSE_PIN A17
 #endif
+
+#define MAX_VOLTAGE 4200
+#define MIN_VOLTAGE 3000
 
 // WiFi
 #define AP_PASSWORD "vorratslager"

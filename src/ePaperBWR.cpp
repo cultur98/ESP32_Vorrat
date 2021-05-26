@@ -6,6 +6,7 @@
 #include "Logger.h"
 #include "wifiman.h"
 #include "vorratConfig.h"
+#include "batty.h"
 
 ePaperBWR::ePaperBWR()
 {
@@ -236,15 +237,18 @@ void ePaperBWR::print_lager_list(char *update, int today, int page, bool new_fw)
 #define BATT_MAX 4.15
 #define BATT_MIN 3.3
 
-  if(batt_voltage > 0.0)
+  if(batt_voltage > 1.5)
   {
+/*
     int batt_percent = (int) 100.0 * ((batt_voltage - BATT_MIN) / (BATT_MAX - BATT_MIN));
     if (batt_percent > 100)
       batt_percent = 100;
     if(batt_percent < 0)
       batt_percent = 0;
-    snprintf(last_text, 80, "%d%%", batt_percent);
-    TRACE1();
+      */
+    snprintf(last_text, 80, "%.2f %d%%", batt_voltage, batt_level);
+    DUMP1(batt_voltage);
+    DUMP1(batt_level);
     EPD_print_text(last_size, last_text, x_batt, ypos, vorrat_config.lastline_font_style);
   }
   EPD_print_text(last_size, page_string, left_space, ypos, vorrat_config.lastline_font_style);
