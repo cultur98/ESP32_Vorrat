@@ -11,18 +11,20 @@
 
 #define WAKEUP_BUTTON 39
 #ifdef LILYGO_47
+// LILYGO 4.7"
 #define BUTTON_1      34
 #define BUTTON_2      35
-#define BAT_SENSE_PIN A0
+#define BAT_SENSE_PIN 36
 #define BAT_GAIN 2.0
 #else
+// LILYGO 2.x"
 #define BUTTON_1      37
 #define BUTTON_2      38
 #define BAT_GAIN 1.86
 #define BAT_SENSE_PIN A17
 #endif
 
-#define MAX_VOLTAGE 4200
+#define MAX_VOLTAGE 4180
 #define MIN_VOLTAGE 3000
 
 // WiFi

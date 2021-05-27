@@ -78,7 +78,7 @@ bool hch_init(char *name, int speed)
     Serial.printf(" rctr: %d\n", the_eeprom_block.reboot_ctr);
     Serial.printf(" fw  : %d.%d\n", the_eeprom_block.fw_version_maj, the_eeprom_block.fw_version_min);
     Serial.printf(" ota : %d\n", the_eeprom_block.ota_request);
-    Serial.printf(" lan : %d\n", the_eeprom_block.language);
+    Serial.printf(" lang: %d\n", the_eeprom_block.language);
     the_eeprom_block.boot_ctr = the_eeprom_block.boot_ctr + 1;
     if(the_eeprom_block.ota_request == OTA_IDENTIFIER)
       retval = true;

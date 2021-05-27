@@ -234,19 +234,11 @@ void ePaperBWR::print_lager_list(char *update, int today, int page, bool new_fw)
   snprintf(last_text, 80, "v%d.%d", FW_VERSION_MAJ, FW_VERSION_MIN);
   EPD_print_text(last_size, last_text, x_version, ypos, vorrat_config.lastline_font_style);
 
-#define BATT_MAX 4.15
-#define BATT_MIN 3.3
 
-  if(batt_voltage > 1.5)
+  if(x_batt > 0)
   {
-/*
-    int batt_percent = (int) 100.0 * ((batt_voltage - BATT_MIN) / (BATT_MAX - BATT_MIN));
-    if (batt_percent > 100)
-      batt_percent = 100;
-    if(batt_percent < 0)
-      batt_percent = 0;
-      */
-    snprintf(last_text, 80, "%.2f %d%%", batt_voltage, batt_level);
+//    snprintf(last_text, 80, "%.2f %d%%", batt_voltage, batt_level);
+    snprintf(last_text, 80, "%d%%", batt_level);
     DUMP1(batt_voltage);
     DUMP1(batt_level);
     EPD_print_text(last_size, last_text, x_batt, ypos, vorrat_config.lastline_font_style);
@@ -256,11 +248,9 @@ void ePaperBWR::print_lager_list(char *update, int today, int page, bool new_fw)
 }
 
 #ifdef LILYGO_47
-
 #define Y_OFFSET 60
 #define X_START 50
 #define Y_START 80
-
 #else
 #define Y_OFFSET 25
 #define X_START 10
@@ -317,7 +307,7 @@ void ePaperBWR::show_config()
   sprintf(the_string, "WiFi RSSI %d", WiFi.RSSI());
   EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
 
-  sprintf(the_string, "Butt w:%d | b1:%d | b2:%d", WAKEUP_BUTTON, BUTTON_1, BUTTON_2);
+  sprintf(the_string, "Batt %.2fV SOC %d%%", ((float)batt_voltage)/1000.0f, batt_level);
   EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
   EPD_draw_logo();
   EPD_leave();

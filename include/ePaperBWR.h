@@ -28,8 +28,6 @@ private:
   int height, s_height;
   int columns, column_space;
   int items_per_screen;
-//  char ort[MAX_STRING_LEN];
-//  char *ort;
   void loadSettings();
 
 };

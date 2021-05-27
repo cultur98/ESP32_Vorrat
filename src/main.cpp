@@ -280,10 +280,10 @@ void setup() {
     show_config = false;
     ota_update = false;
   }
-  myBatt.init();
-  myBatt.read();
   has_valid_config = WiFiManager_loadConfigData();
   myEpaper.init();
+  myBatt.init();
+  myBatt.read();
   if(has_valid_config == false)
   {
     Serial.printf("Config status [%d]\n", has_valid_config);  

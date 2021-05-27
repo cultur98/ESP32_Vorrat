@@ -76,6 +76,7 @@ void EPD_init(int &width, int &height)
   memset(framebuffer, 0xFF, EPD_WIDTH * EPD_HEIGHT / 2);
   width = EPD_WIDTH;
   height = EPD_HEIGHT;
+  epd_poweron();
 }
 
 void EPD_draw_logo()
