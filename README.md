@@ -9,7 +9,6 @@ Angezeigt werden alle Vorräte, die ein MHD enthalten, die bereits abgelaufen si
 Wenn eine Batterie angeschlossen ist, kann der Controller zu bestimmten Zeiten geweckt werden,
 um die Anzeige aktualisieren.
 
-<img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/LilyGo_vergleich.png" alt="ESP32_Vorrat" width="700"/>
 
 ## Unterstützte Displays
 | LilyGo T5 2.7" | LilyGo T5 2.9" | LilyGo T5 4.7" |
@@ -22,6 +21,8 @@ Die unterstützen ESP32 Boadrs mit ePaper Display werden im folgenden kurz ESP g
 _Bild der Anzeige und Beschreibung der Inhalte_
 
 **Funktion der Tasten**
+
+<img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/LilyGo_gehaeuse.png" alt="ESP32_Vorrat" width="700"/>
 
 | Taste | beim Start | im Betrieb |
 | ------: | ------- | ------- |
