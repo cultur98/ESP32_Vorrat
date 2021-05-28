@@ -26,8 +26,9 @@ Ticker watch_tick;
 MyTimer myTimer;
 TaskHandle_t TickTask;
 int language = _GER_;
-Button2 button1 = Button2(BUTTON_1);
-Button2 button2 = Button2(BUTTON_2);
+Button2 button1 = Button2(BUTTON_LAST);
+Button2 button2 = Button2(BUTTON_NEXT);
+Button2 button3 = Button2(BUTTON_OPT);
 Batty myBatt;
 
 int the_page = 0;
@@ -107,15 +108,9 @@ void show_next_screen()
 void click(Button2& btn) {
   TRACE1();
   if (btn == button1) {
-    if(myEpaper.orientation == PORTRAIT_MODE)
-      show_next_screen();
-    else
       show_prev_screen();
   }
-  if (btn == button2) {
-    if(myEpaper.orientation == PORTRAIT_MODE)
-      show_prev_screen();
-    else
+  if ((btn == button2) || (btn == button2) ){
       show_next_screen();
   }
 }
@@ -235,8 +230,10 @@ bool setup_button_click()
   TRACE1();
   button1.setClickHandler(click);
   button2.setClickHandler(click);
+  button3.setClickHandler(click);
   button1.setLongClickHandler(click);
   button2.setLongClickHandler(click);
+  button3.setLongClickHandler(click);
   return(true);
 }
 
@@ -245,9 +242,10 @@ void setup() {
   bool show_config = false;
   bool ota_update = false;
   bool force_ap_mode = false;
-  pinMode(WAKEUP_BUTTON, INPUT_PULLUP);
-  pinMode(BUTTON_1, INPUT_PULLUP);
-  pinMode(BUTTON_2, INPUT_PULLUP);
+  pinMode(BUTTON_WAKE, INPUT_PULLUP);
+  pinMode(BUTTON_LAST, INPUT_PULLUP);
+  pinMode(BUTTON_NEXT, INPUT_PULLUP);
+  pinMode(BUTTON_OPT, INPUT_PULLUP);
   ota_update = hch_init((char*)CLIENT_ID, 115200);
   delay(100);
   language = hch_get_lang();
@@ -260,26 +258,28 @@ void setup() {
 
   Serial.printf("CLIENT_ID %s\n", CLIENT_ID);
   watch_tick.attach((float)(TICK_TASK_DELAY / 1000), watch_task);
-  if(digitalRead(BUTTON_1) == LOW)
+
+  Serial.printf("Button state [%d|%d|%d|%d]\n", 
+    digitalRead(BUTTON_WAKE), digitalRead(BUTTON_LAST),
+    digitalRead(BUTTON_NEXT), digitalRead(BUTTON_OPT));
+  if(digitalRead(BUTTON_LAST) == LOW)
   {
     ota_update = true;
-  }
-  if(ota_update == true)
-  {
     Serial.println(F("FIRMWARE UPDATE requested!"));
   }
-  if(digitalRead(BUTTON_2) == LOW)
+  if( (digitalRead(BUTTON_NEXT) == LOW) || (digitalRead(BUTTON_OPT) == LOW) )
   {
     Serial.println(F("SHOW CONFIG requested!"));
     show_config = true;
   }
-  if((digitalRead(BUTTON_1) == LOW) && (digitalRead(BUTTON_2) == LOW))
+  if( (digitalRead(BUTTON_LAST) == LOW) && (digitalRead(BUTTON_NEXT) == LOW) )
   {
     Serial.println(F("AP MODE requested!"));
     force_ap_mode = true;
     show_config = false;
     ota_update = false;
   }
+
   has_valid_config = WiFiManager_loadConfigData();
   myEpaper.init();
   myBatt.init();

@@ -9,18 +9,21 @@
 
 #define OTA_URL "https://vorrat.sebag.de/esp32/"
 
-#define WAKEUP_BUTTON 39
 #ifdef LILYGO_47
 // LILYGO 4.7"
-#define BUTTON_1      34
-#define BUTTON_2      35
-#define BAT_SENSE_PIN 36
+#define BUTTON_LAST    34
+#define BUTTON_NEXT    35
+#define BUTTON_OPT     0
+#define BUTTON_WAKE    39
+#define BAT_SENSE_PIN  36
 #define BAT_GAIN 2.0
 #else
 // LILYGO 2.x"
-#define BUTTON_1      37
-#define BUTTON_2      38
-#define BAT_GAIN 1.86
+#define BUTTON_LAST    37
+#define BUTTON_NEXT    39
+#define BUTTON_OPT     39  // not available
+#define BUTTON_WAKE    38
+#define BAT_GAIN 1.86      // should be 2.0 ih theory but the 
 #define BAT_SENSE_PIN A17
 #endif
 
