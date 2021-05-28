@@ -17,19 +17,16 @@ um die Anzeige aktualisieren.
 
 Die unterstützen ESP32 Boadrs mit ePaper Display werden im folgenden kurz ESP genannt.
 
-**Anzeige**
-_Bild der Anzeige und Beschreibung der Inhalte_
-
 **Funktion der Tasten**
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/LilyGo_gehaeuse.png" alt="ESP32_Vorrat" width="700"/>
 
 | Taste | beim Start | im Betrieb |
 | ------: | ------- | ------- |
-| 37 | Online Update durchführen (nur Vorrat Version) | eine Seite weiter blättern |
-| 38 | Konfiguration bei verbundenem WLAN anzeigen | eine Seite zurück blättern |
-| 39 | weckt den ESP | (keine) |
-| 38 & 39 | in den AP Modus wechseln und Verbindungsdaten anzeigen| (keine) |
+| `vor` | Online Update durchführen (nur Vorrat Version) | eine Seite weiter blättern |
+| `zurück` | Konfiguration bei verbundenem WLAN anzeigen | eine Seite zurück blättern |
+| `vor` & `zurück` | in den AP Modus wechseln und Verbindungsdaten anzeigen| (keine) |
+| `Wecken` | weckt den ESP | (keine) |
 
 _Anmerkung_: <br>
 Im Betrieb funktioniert das Blättern nur, wenn die Liste bereits vollständig
