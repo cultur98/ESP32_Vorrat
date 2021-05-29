@@ -21,7 +21,7 @@ Die unterstützen ESP32 Boadrs mit ePaper Display werden im folgenden kurz ESP g
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/LilyGo_gehaeuse.png" alt="ESP32_Vorrat" width="700"/>
 
-| Taste | beim Start | im Betrieb |
+| Taste | während des Starts | im Betrieb |
 | ------: | ------- | ------- |
 | `vor` | Online Update durchführen (nur Vorrat Version) | eine Seite weiter blättern |
 | `zurück` | Konfiguration bei verbundenem WLAN anzeigen | eine Seite zurück blättern |
@@ -117,6 +117,21 @@ Layouts. Die jeweiligen Maße sind in diesem Bild dagestellt.
 Alle geometrischen Größen werden in Pixeln eingegeben.
 
 <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/Screen_Layout_ger.png" alt="Screen Parameter" width="700"/>
+
+
+**Batteriezustand**<br>
+Der ESP mit dem 4.7" Display hat eine integrierte Messung des Batteriezustands.<br>
+Die 2.7" und 2.9" Variante haben diese nicht.<br>
+ Hier kann man die Anzeige des Batteriezustands verhindern, wenn man bei der Option `Abstand Batteriezustand`"0" einträgt.
+
+**Nachrüsten der Messung des Batteriezustands**<br>
+<img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/spannungsteiler_mit.png" alt="Screen Parameter" width="700"/>
+Mit einem einfachen Spannungsteiler bestehend aus zwei 100k Widerständen und einem Kondensator lässt sich die Messung des Batteriezustands einfach nachrüsten.
+Dies führt zu einer Erhöhung des Ruhestroms im _Deep Sleep Modus_ um ca. 10%.<br>
+Im Fall der ESP 2.7" Variante steigt der Ruhestom mit Spannungsteiler von 364µA auf 404µA.
+| LilyGo T5 2.7" | LilyGo T5 2.9" | LilyGo T5 4.7" |
+|:--:|:--:|
+|  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/spannungsteiler.png" alt="LilyGo T5 2.7" width="150"/> |  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/spannungsteiler_mit.png" alt="LilyGo T5 2.9" width="150"/> | 
 
 **Update**<br>
 Für jedes Display gibt es zwei Varianten der Software.
