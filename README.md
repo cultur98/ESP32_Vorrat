@@ -129,8 +129,7 @@ Die 2.7" und 2.9" Variante haben diese nicht.<br>
 Mit einem einfachen Spannungsteiler bestehend aus zwei 100k Widerständen und einem Kondensator lässt sich die Messung des Batteriezustands einfach nachrüsten.
 Dies führt zu einer Erhöhung des Ruhestroms im _Deep Sleep Modus_ um ca. 10%.<br>
 Im Fall der ESP 2.7" Variante steigt der Ruhestom mit Spannungsteiler von 364µA auf 404µA.
-| LilyGo T5 2.7" | LilyGo T5 2.9" | LilyGo T5 4.7" |
-|:--:|:--:|
+
 |  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/spannungsteiler.png" alt="LilyGo T5 2.7" width="150"/> |  <img src="https://github.com/cultur98/ESP32_Vorrat/blob/main/doc/spannungsteiler_mit.png" alt="LilyGo T5 2.9" width="150"/> | 
 
 **Update**<br>
