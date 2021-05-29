@@ -126,7 +126,7 @@ Die 2.7" und 2.9" Variante haben diese nicht.<br>
 
 **Nachrüsten der Messung des Batteriezustands**<br>
 
-Mit einem einfachen Spannungsteiler bestehend aus zwei 100k Widerständen und einem Kondensator lässt sich die Messung des Batteriezustands einfach nachrüsten.
+Mit einem einfachen Spannungsteiler bestehend aus zwei 100k Widerständen und einem Kondensator lässt sich die Messung des Batteriezustands einfach nachrüsten.<br>
 Dies führt zu einer Erhöhung des Ruhestroms im _Deep Sleep Modus_ um ca. 10%.<br>
 Im Fall der ESP 2.7" Variante steigt der Ruhestom mit Spannungsteiler von 364µA auf 404µA.
 
