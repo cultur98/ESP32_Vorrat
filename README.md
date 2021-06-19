@@ -27,6 +27,7 @@ Die unterstützen ESP32 Boadrs mit ePaper Display werden im folgenden kurz ESP g
 | `zurück` | Konfiguration bei verbundenem WLAN anzeigen | eine Seite zurück blättern |
 | `vor` & `zurück` | in den AP Modus wechseln und Verbindungsdaten anzeigen| (keine) |
 | `Wecken` | weckt den ESP | (keine) |
+| `Reset` | Neustart | Neustart |
 
 _Anmerkung_: <br>
 Im Betrieb funktioniert das Blättern nur, wenn die Liste bereits vollständig

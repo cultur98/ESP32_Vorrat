@@ -528,7 +528,7 @@ void WiFiManager_init(char const* host_name, bool force_ap_mode)
   // Set config portal channel, default = 1. Use 0 => random channel from 1-13
   ESP_wifiManager.setConfigPortalChannel(0);
   //////
-  
+
 #if !USE_DHCP_IP    
     // Set (static IP, Gateway, Subnetmask, DNS1 and DNS2) or (IP, Gateway, Subnetmask). New in v1.0.5
     // New in v1.4.0
@@ -626,7 +626,6 @@ void WiFiManager_init(char const* host_name, bool force_ap_mode)
     // New in v1.4.0
     ESP_wifiManager.getSTAStaticIPConfig(WM_STA_IPconfig);
     //////
-    
     saveConfigData();
   }
 
@@ -709,6 +708,8 @@ void WiFiManager_init(char const* host_name, bool force_ap_mode)
   Serial.print(F("Open http://"));
   Serial.print(host_name);
   Serial.println(F(".local/edit to see the file browser"));
+  DUMP1(ESP_wifiManager.getSSID());
+  DUMP1(ESP_wifiManager.getSSID1());
 }
 
 void WiFiManager_loop() 

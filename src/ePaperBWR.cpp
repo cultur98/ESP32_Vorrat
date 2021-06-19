@@ -8,6 +8,11 @@
 #include "vorratConfig.h"
 #include "batty.h"
 
+// defined in ESP_WiFiManager.h
+extern String getSSID();
+extern String getSSID1();
+
+
 ePaperBWR::ePaperBWR()
 {
 }
