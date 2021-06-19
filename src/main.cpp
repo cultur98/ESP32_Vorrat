@@ -28,7 +28,6 @@ TaskHandle_t TickTask;
 int language = _GER_;
 Button2 button1 = Button2(BUTTON_LAST);
 Button2 button2 = Button2(BUTTON_NEXT);
-Button2 button3 = Button2(BUTTON_OPT);
 Batty myBatt;
 
 int the_page = 0;
@@ -230,10 +229,8 @@ bool setup_button_click()
   TRACE1();
   button1.setClickHandler(click);
   button2.setClickHandler(click);
-  button3.setClickHandler(click);
   button1.setLongClickHandler(click);
   button2.setLongClickHandler(click);
-  button3.setLongClickHandler(click);
   return(true);
 }
 
@@ -245,7 +242,6 @@ void setup() {
   pinMode(BUTTON_WAKE, INPUT_PULLUP);
   pinMode(BUTTON_LAST, INPUT_PULLUP);
   pinMode(BUTTON_NEXT, INPUT_PULLUP);
-  pinMode(BUTTON_OPT, INPUT_PULLUP);
   ota_update = hch_init((char*)CLIENT_ID, 115200);
   delay(100);
   language = hch_get_lang();
@@ -259,15 +255,15 @@ void setup() {
   Serial.printf("CLIENT_ID %s\n", CLIENT_ID);
   watch_tick.attach((float)(TICK_TASK_DELAY / 1000), watch_task);
 
-  Serial.printf("Button state [%d|%d|%d|%d]\n", 
+  Serial.printf("Button state [%d|%d|%d]\n", 
     digitalRead(BUTTON_WAKE), digitalRead(BUTTON_LAST),
-    digitalRead(BUTTON_NEXT), digitalRead(BUTTON_OPT));
-  if(digitalRead(BUTTON_LAST) == LOW)
+    digitalRead(BUTTON_NEXT));
+  if(digitalRead(BUTTON_NEXT) == LOW)
   {
     ota_update = true;
     Serial.println(F("FIRMWARE UPDATE requested!"));
   }
-  if( (digitalRead(BUTTON_NEXT) == LOW) || (digitalRead(BUTTON_OPT) == LOW) )
+  if( digitalRead(BUTTON_LAST) == LOW )
   {
     Serial.println(F("SHOW CONFIG requested!"));
     show_config = true;
@@ -307,15 +303,16 @@ void setup() {
   bool new_online_fw = checkVersion();
   if(ota_update == true)
   {
-    myEpaper.show_ota_update(theVersion.new_major, theVersion.new_minor);
     hch_clear_ota_request();
     if(checkForUpdates() == true)
     {
-      Serial.println(F("New Update avaialable\n"));
+      myEpaper.show_ota_update(theVersion.new_major, theVersion.new_minor);
+      Serial.println(F("New Update available\n"));
       return;    
     }
     else
     {
+      myEpaper.show_firmware();
       Serial.println(F("Firmware up to date .... continue!\n"));
     }
   }

@@ -306,9 +306,17 @@ void ePaperBWR::show_config()
 
   sprintf(the_string, "WiFi RSSI %d", WiFi.RSSI());
   EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
-
-  sprintf(the_string, "Batt %.2fV SOC %d%%", ((float)batt_voltage)/1000.0f, batt_level);
-  EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
+  
+  if(batt_voltage > 2.0f)
+  {
+    sprintf(the_string, "Batterie  %.2fV  (%d%%)", batt_voltage, batt_level);
+    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
+  }
+  else
+  {
+    sprintf(the_string, "No Battery");
+    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
+  }
   EPD_draw_logo();
   EPD_leave();
   free(the_string);
@@ -341,10 +349,32 @@ void ePaperBWR::show_ota_update(int new_major, int new_minor)
   EPD_print_text(12, the_string, X_START, Y_START+2*Y_OFFSET, false);
 
   if(language == _GER_)
-    sprintf(the_string, "Dies dauert einige Minuten ..");
+    sprintf(the_string, "Dies kann einige Minuten dauern ..");
   else
     sprintf(the_string, "This can take some minutes ..");
   EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
+  EPD_draw_logo();
+  EPD_leave();
+  free(the_string);
+}
+
+void ePaperBWR::show_firmware()
+{
+  TRACE1();
+
+  EPD_enter();
+  EPD_orient(LANDSCAPE_MODE);
+
+  char *the_string = (char*)malloc(MED_STRING_LEN);
+  if(language == _GER_)
+    sprintf(the_string, "Firmware ist aktuell");  
+  else
+    sprintf(the_string, "Firmware is up to date");
+  EPD_print_text(12, the_string, X_START, Y_START, false);
+ 
+  sprintf(the_string, "Version %d.%d", FW_VERSION_MAJ, FW_VERSION_MIN);
+  EPD_print_text(12, the_string, X_START, Y_START+Y_OFFSET, false);
+
   EPD_draw_logo();
   EPD_leave();
   free(the_string);

@@ -11,9 +11,8 @@
 
 #ifdef LILYGO_47
 // LILYGO 4.7"
-#define BUTTON_LAST    34
-#define BUTTON_NEXT    35
-#define BUTTON_OPT     0
+#define BUTTON_LAST    35
+#define BUTTON_NEXT    34
 #define BUTTON_WAKE    39
 #define BAT_SENSE_PIN  36
 #define BAT_GAIN 2.0
@@ -21,9 +20,8 @@
 // LILYGO 2.x"
 #define BUTTON_LAST    37
 #define BUTTON_NEXT    39
-#define BUTTON_OPT     39  // not available
 #define BUTTON_WAKE    38
-#define BAT_GAIN 1.86      // should be 2.0 ih theory but the 
+#define BAT_GAIN 1.86      // should be 2.0 in theory but the AD converter seems to make an error
 #define BAT_SENSE_PIN A17
 #endif
 

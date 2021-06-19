@@ -14,6 +14,7 @@ public:
   void ap_mode(const char*);
   void show_ota_update(int, int);
   void show_config();
+  void show_firmware();
   void default_mode();
   uint8_t orientation;
 private:

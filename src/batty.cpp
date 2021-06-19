@@ -13,6 +13,7 @@ Batty::Batty() {
   batt_level = 0;
 }
 
+// copied from https://github.com/rlogiacco/BatterySense
 void Batty::init() {
   TRACE1();
   vref = 1100;
@@ -28,7 +29,11 @@ uint8_t Batty::level()
 {
   uint16_t maxVoltage = MAX_VOLTAGE;
   uint16_t minVoltage = MIN_VOLTAGE;
-  return(105 - (105 / (1 + pow(1.724 * (uint16_t(batt_voltage*1000.0f) - minVoltage)/(maxVoltage - minVoltage), 5.5))));
+  // copied from https://github.com/rlogiacco/BatterySense
+  batt_level = 105 - (105 / (1 + pow(1.724 * (uint16_t(batt_voltage*1000.0f) - minVoltage)/(maxVoltage - minVoltage), 5.5)));
+  if(batt_level > 100)
+    batt_level = 100;
+  return(batt_level);
 }
 
 void Batty::read()
