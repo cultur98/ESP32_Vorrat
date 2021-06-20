@@ -23,6 +23,7 @@ const char* fwUrlBase = OTA_URL;
 
 String getVersion()
 {
+  TRACE1();
   String result;
   result += "esp32_vorrat_";
 
@@ -39,6 +40,10 @@ String getVersion()
   result += "lilygo_47";
 #endif
 
+#ifndef VORRAT_APP
+  result += "dev";
+#endif
+  DUMP1(result);
   return String( result );
 }
 
