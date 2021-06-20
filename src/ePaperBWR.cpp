@@ -314,7 +314,11 @@ void ePaperBWR::show_config()
   
   if(batt_voltage > 2.0f)
   {
+  #ifdef VORRAT_APP
+    sprintf(the_string, "Batterie  %d%%", batt_level);
+  #else
     sprintf(the_string, "Batterie  %.2fV  (%d%%)", batt_voltage, batt_level);
+  #endif
     EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
   }
   else
