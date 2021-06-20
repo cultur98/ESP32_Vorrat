@@ -13,7 +13,7 @@
 #ifdef VORRAT_APP
 #define OTA_URL "https://vorrat.sebag.de/esp32/"
 #else
-#define OTA_URL "https://github.com/cultur98/ESP32_Vorrat/tree/main/bin.dev"
+#define OTA_URL "https://github.com/cultur98/ESP32_Vorrat/tree/main/bin.dev/"
 #endif
 
 vorratVersion theVersion;
