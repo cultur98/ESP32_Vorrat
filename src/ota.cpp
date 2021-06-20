@@ -7,6 +7,9 @@
 #include <WiFiClientSecure.h>
 #include <HttpsOTAUpdate.h>
 
+#define ARDUINOTRACE_ENABLE 1
+#include "ArduinoTrace.h"
+
 #ifdef VORRAT_APP
 #define OTA_URL "https://vorrat.sebag.de/esp32/"
 #else
@@ -40,10 +43,11 @@ String getVersion()
 }
 
 bool checkVersion() {
+  TRACE1();
   bool fw_update = false;
   WiFiClientSecure client;
   client.setInsecure();
-
+  DUMP1(fwUrlBase);
   String espversion = getVersion();
   String fwURL = String( fwUrlBase );
   fwURL.concat( espversion );
@@ -89,6 +93,7 @@ bool checkVersion() {
 
 void HttpEvent(HttpEvent_t *event)
 {
+  TRACE1();
   switch(event->event_id) {
     case HTTP_EVENT_ERROR:
       Serial.println("Http Event Error");
@@ -114,6 +119,7 @@ void HttpEvent(HttpEvent_t *event)
 }
 
 bool checkForUpdates() {
+  TRACE1();
   WiFiClientSecure client;
   client.setInsecure();
   String espversion = getVersion();
