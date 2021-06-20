@@ -7,9 +7,14 @@
 #include <WiFiClientSecure.h>
 #include <HttpsOTAUpdate.h>
 
+#ifdef VORRAT_APP
+#define OTA_URL "https://vorrat.sebag.de/esp32/"
+#else
+#define OTA_URL "https://github.com/cultur98/ESP32_Vorrat/tree/main/bin.dev"
+#endif
+
 vorratVersion theVersion;
 
-#ifdef VORRAT_APP
 bool ota_update_started;
 const char* fwUrlBase = OTA_URL;
 
@@ -158,8 +163,8 @@ bool checkForUpdates() {
   }
   return(fw_update);
 }
-#else
 
+/*
 bool checkForUpdates() {
 }
 
@@ -170,6 +175,4 @@ bool checkVersion() {
   theVersion.new_minor = FW_VERSION_MIN;
   return(false);
 }
-
-
-#endif
+*/

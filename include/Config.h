@@ -7,8 +7,6 @@
 #define MED_STRING_LEN 128
 #define MIN_STRING_LEN 64
 
-#define OTA_URL "https://vorrat.sebag.de/esp32/"
-
 #ifdef LILYGO_47
 // LILYGO 4.7"
 #define BUTTON_LAST    35
