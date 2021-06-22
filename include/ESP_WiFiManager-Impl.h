@@ -1265,7 +1265,9 @@ void ESP_WiFiManager::handleWifi()
 
     page += pitem;
   }
-  
+
+// HCH begin
+/*
   // From v1.0.10
   if (_paramsCount > 0)
   {
@@ -1355,7 +1357,8 @@ void ESP_WiFiManager::handleWifi()
 
     page += "<br/>";
   }
-  
+*/
+// HCH end
   page += FPSTR(WM_HTTP_SCRIPT_NTP_HIDDEN);
 
   page += FPSTR(WM_HTTP_FORM_END);
