@@ -1219,8 +1219,11 @@ void ESP_WiFiManager::handleWifi()
 
     page += "<br/>";
   }
-
-  page += FPSTR(WM_HTTP_FORM_START);
+// HCH begin
+  page += FPSTR(WM_HTTP_FORM_START_1);
+  page += FPSTR(WM_HTTP_FORM_START_2);
+  page += FPSTR(WM_HTTP_FORM_START_3);
+// HCH end
   char parLength[2];
   
   page += FPSTR(WM_FLDSET_START);
