@@ -304,9 +304,10 @@ void setup() {
   if(ota_update == true)
   {
     hch_clear_ota_request();
-    if(checkForUpdates() == true)
+    if(new_online_fw == true)
     {
       myEpaper.show_ota_update(theVersion.new_major, theVersion.new_minor);
+      checkForUpdates();
       Serial.println(F("New Update available\n"));
       return;    
     }
