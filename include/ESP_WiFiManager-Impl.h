@@ -51,7 +51,10 @@
   1.7.2   K Hoang      08/05/2021 Fix warnings with ESP8266 core v3.0.0
  *****************************************************************************************************************************/
 
-#include "ESP_WiFiManager.h"
+#pragma once
+
+#ifndef ESP_WiFiManager_Impl_h
+#define ESP_WiFiManager_Impl_h
 
 
 //////////////////////////////////////////
@@ -2106,3 +2109,5 @@ String ESP_WiFiManager::getStoredWiFiPass()
 }
 #endif
 
+
+#endif    //ESP_WiFiManager_Impl_h
