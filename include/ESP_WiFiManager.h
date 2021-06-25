@@ -216,8 +216,8 @@ const char WM_HTTP_FORM_START_0[] PROGMEM = "<form method='get' action='wifisave
 const char WM_HTTP_FORM_START_1[] PROGMEM = "<form method='get' action='wifisave'>\
 <fieldset>";
 const char WM_HTTP_FORM_START_2[] PROGMEM = "<div><label>Password</label><input id='p' name='p' length=64 placeholder='password'><div></div></div>";
-const char WM_HTTP_FORM_START_3[] PROGMEM = "<div><label>Password</label><input id='p1' name='p1' length=64 placeholder='password1'><div></div></div>\
-</fieldset>";
+const char WM_HTTP_FORM_START_3[] PROGMEM = "<div><label>Password</label><input id='p1' name='p1' length=64 placeholder='password1'><div></div></div>";
+const char WM_HTTP_FORM_START_4[] PROGMEM = "</fieldset>";
 // HCH end
 
 // KH, add from v1.0.10

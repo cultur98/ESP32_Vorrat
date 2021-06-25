@@ -123,7 +123,8 @@ Alle geometrischen Größen werden in Pixeln eingegeben.
 **Batteriezustand**<br>
 Der ESP mit dem 4.7" Display hat eine integrierte Messung des Batteriezustands.<br>
 Die 2.7" und 2.9" Variante haben diese nicht.<br>
- Hier kann man die Anzeige des Batteriezustands verhindern, wenn man bei der Option `Abstand Batteriezustand`"0" einträgt.
+ Hier kann man die Anzeige des Batteriezustands verhindern, <br>
+ wenn man bei der Option `Abstand Batteriezustand` eine `0` einträgt.
 
 **Nachrüsten der Messung des Batteriezustands**<br>
 

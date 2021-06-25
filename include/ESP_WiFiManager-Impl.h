@@ -702,6 +702,7 @@ void ESP_WiFiManager::setWifiStaticIP()
 // New from v1.1.0
 int ESP_WiFiManager::reconnectWifi()
 {
+  TRACE1();
   int connectResult;
   
   // using user-provided  _ssid, _pass in place of system-stored ssid and pass
@@ -730,6 +731,7 @@ int ESP_WiFiManager::connectWifi(String ssid, String pass)
   //KH, from v1.0.10.
   // Add option if didn't input/update SSID/PW => Use the previous saved Credentials.
   // But update the Static/DHCP options if changed.
+  TRACE1();
   if ( (ssid != "") || ( (ssid == "") && (WiFi_SSID() != "") ) )
   {   
     //fix for auto connect racing issue. Move up from v1.1.0 to avoid resetSettings()
@@ -1220,10 +1222,34 @@ void ESP_WiFiManager::handleWifi()
     page += "<br/>";
   }
 // HCH begin
+  DUMP1(_ssid);
+  DUMP1(_ssid1);
   page += FPSTR(WM_HTTP_FORM_START_1);
+
+  String item = FPSTR(WM_HTTP_FORM_LABEL);
+  item += FPSTR(WM_HTTP_FORM_PARAM);
+  item.replace("{i}", "s");
+  item.replace("{n}", "s");
+  item.replace("{p}", "SSID");
+  item.replace("{l}", "15");
+  item.replace("{v}", WiFi_SSID());
+  page += item;
+
   page += FPSTR(WM_HTTP_FORM_START_2);
+  
+  item = FPSTR(WM_HTTP_FORM_LABEL);
+  item += FPSTR(WM_HTTP_FORM_PARAM);
+  item.replace("{i}", "s1");
+  item.replace("{n}", "s1");
+  item.replace("{p}", "SSID1");
+  item.replace("{l}", "15");
+  item.replace("{v}", "");
+  page += item;
+
   page += FPSTR(WM_HTTP_FORM_START_3);
+
 // HCH end
+  page += FPSTR(WM_HTTP_FORM_START_4);
   char parLength[2];
   
   page += FPSTR(WM_FLDSET_START);
