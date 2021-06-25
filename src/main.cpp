@@ -294,10 +294,13 @@ void setup() {
     myEpaper.firmware_change(FW_VERSION_MAJ, FW_VERSION_MIN);
   }
 
+/*
   if(force_ap_mode == true)
   {
     myEpaper.ap_mode("Button Pressed");
   }
+  */
+ 
   wasConnected = true;
 
   WiFiManager_init(CLIENT_ID, force_ap_mode);
