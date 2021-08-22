@@ -29,11 +29,26 @@ uint8_t Batty::level()
 {
   uint16_t maxVoltage = MAX_VOLTAGE;
   uint16_t minVoltage = MIN_VOLTAGE;
+  float batt_volt = batt_voltage;
+  if(batt_voltage <= ((float)MIN_VOLTAGE/1000.0f))
+    batt_volt = ((float)MIN_VOLTAGE+1)/1000.0f;
+  if(batt_voltage > ((float)MAX_VOLTAGE/1000.0f))
+    batt_volt = (((float)MAX_VOLTAGE+1)/1000.0f);
+  DUMP1(batt_voltage);
+  DUMP1(batt_volt);
   // copied from https://github.com/rlogiacco/BatterySense
-  batt_level = 105 - (105 / (1 + pow(1.724 * (uint16_t(batt_voltage*1000.0f) - minVoltage)/(maxVoltage - minVoltage), 5.5)));
-  if(batt_level > 100)
-    batt_level = 100;
+  batt_level = 105 - (105 / (1 + pow(1.724 * (uint16_t(batt_volt*1000.0f) - minVoltage)/(maxVoltage - minVoltage), 5.5)));
   return(batt_level);
+}
+
+void Batty::test()
+{
+  TRACE1();
+  for(batt_voltage = 2.001; batt_voltage < 5.0; batt_voltage = batt_voltage + 0.05f)
+  {
+    int test_level = level();
+    Serial.printf("Vtest: %.3fV\t%d\t%d\n", batt_voltage, batt_level, test_level);
+  }
 }
 
 void Batty::read()

@@ -279,6 +279,7 @@ void setup() {
   has_valid_config = WiFiManager_loadConfigData();
   myEpaper.init();
   myBatt.init();
+  myBatt.test();
   myBatt.read();
   if(has_valid_config == false)
   {

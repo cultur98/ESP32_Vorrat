@@ -11,6 +11,7 @@ public:
   Batty();
   void init();
   void read();
+  void test();
 private:
   uint8_t level();
   int vref;
