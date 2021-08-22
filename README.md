@@ -83,7 +83,7 @@ Die Tabelle muss diesen Aufbau haben:
 
 Die erste Spalte enthält den Produktnamen, die zweite den Lagerort und die dritte
 das Mindesthaltbarkeitsdatum.<br>
-Der Inhalt der Kopfzeile wird nicht eingelesen.a
+Der Inhalt der Kopfzeile wird nicht eingelesen.
 
 _Anmerkung_: <br>
 Der ESP zeigt nur die Produkte aus einer Quelle an.

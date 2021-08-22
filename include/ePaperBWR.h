@@ -15,7 +15,9 @@ public:
   void show_ota_update(int, int);
   void show_config();
   void show_firmware();
-  void default_mode();
+  void config_mode();
+  void no_conn();
+  void show_batt(int);
   uint8_t orientation;
 private:
   int delta_days;

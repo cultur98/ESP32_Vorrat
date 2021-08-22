@@ -262,6 +262,26 @@ void ePaperBWR::print_lager_list(char *update, int today, int page, bool new_fw)
 #define Y_START 25
 #endif
 
+void ePaperBWR::show_batt(int line_num)
+{
+  char *the_string = (char*)malloc(MED_STRING_LEN);
+  if(batt_voltage > 2.0f)
+  {
+  #ifdef VORRAT_APP
+    sprintf(the_string, "Batterie  %d%%", batt_level);
+  #else
+    sprintf(the_string, "Batterie  %.fV  (%d%%)", batt_voltage / 1000.0f, batt_level);
+  #endif
+    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
+  }
+  else
+  {
+    sprintf(the_string, "No Battery");
+    EPD_print_text(12, the_string, X_START, Y_START + line_num*Y_OFFSET, false);
+  }
+  free(the_string);
+}
+
 void ePaperBWR::ap_mode(const char* mess)
 {
   TRACE1();
@@ -312,20 +332,7 @@ void ePaperBWR::show_config()
   sprintf(the_string, "WiFi RSSI %d", WiFi.RSSI());
   EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
   
-  if(batt_voltage > 2.0f)
-  {
-  #ifdef VORRAT_APP
-    sprintf(the_string, "Batterie  %d%%", batt_level);
-  #else
-    sprintf(the_string, "Batterie  %.2fV  (%d%%)", batt_voltage, batt_level);
-  #endif
-    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
-  }
-  else
-  {
-    sprintf(the_string, "No Battery");
-    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
-  }
+  show_batt(4);
   EPD_draw_logo();
   EPD_leave();
   free(the_string);
@@ -413,7 +420,7 @@ void ePaperBWR::firmware_change(int new_fw_maj, int new_fw_min)
   free(the_string);
 }
 
-void ePaperBWR::default_mode()
+void ePaperBWR::config_mode()
 {
   TRACE1();
 
@@ -433,20 +440,41 @@ void ePaperBWR::default_mode()
   sprintf(the_string, "http://%s", WiFi.localIP().toString().c_str());
   EPD_print_text(12, the_string, X_START, Y_START+2*Y_OFFSET, false);
 
+  show_batt(3);
+
+  EPD_draw_logo();
+  EPD_leave();
+  free(the_string);
+}
+
+void ePaperBWR::no_conn()
+{
+  TRACE1();
+
+  EPD_enter();
+  EPD_orient(LANDSCAPE_MODE);
+
+  char *the_string = (char*)malloc(MED_STRING_LEN);
   if(language == _GER_)
-  {
-    sprintf(the_string, "Start: Knopf 1-> Online Update");
-    EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
-    sprintf(the_string, "  Knopf 2 -> zeige Konfiguration");
-    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
-  }
+    sprintf(the_string, "Keine Verbindung zum Internet!");
   else
-  {
-    sprintf(the_string, "Start: Knopf 1-> Online Update");
-    EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
-    sprintf(the_string, "  Knopf 2 -> zeige Konfiguration");
-    EPD_print_text(12, the_string, X_START, Y_START+4*Y_OFFSET, false);
-  }
+    sprintf(the_string, "No connection to the Internet!");
+  EPD_print_text(12, the_string, X_START, Y_START, false);
+
+  if(language == _GER_)
+    sprintf(the_string, "Bitte Gerät neu starten.");
+  else
+    sprintf(the_string, "Please restart device.");
+  EPD_print_text(12, the_string, X_START, Y_START+Y_OFFSET, false);
+
+  sprintf(the_string, "SSID %s", WiFi.SSID().c_str());
+  EPD_print_text(12, the_string, X_START, Y_START+2*Y_OFFSET, false);
+
+  sprintf(the_string, "http://%s", WiFi.localIP().toString().c_str());
+  EPD_print_text(12, the_string, X_START, Y_START+3*Y_OFFSET, false);
+
+  show_batt(4);
+
   EPD_draw_logo();
   EPD_leave();
   free(the_string);

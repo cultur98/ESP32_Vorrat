@@ -29,6 +29,8 @@ uint8_t Batty::level()
 {
   uint16_t maxVoltage = MAX_VOLTAGE;
   uint16_t minVoltage = MIN_VOLTAGE;
+  if(batt_voltage < MIN_VOLTAGE)
+    batt_voltage = MIN_VOLTAGE;
   // copied from https://github.com/rlogiacco/BatterySense
   batt_level = 105 - (105 / (1 + pow(1.724 * (uint16_t(batt_voltage*1000.0f) - minVoltage)/(maxVoltage - minVoltage), 5.5)));
   if(batt_level > 100)

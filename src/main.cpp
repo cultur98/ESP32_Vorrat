@@ -276,7 +276,6 @@ void setup() {
     ota_update = false;
   }
 
-
   has_valid_config = WiFiManager_loadConfigData();
   myEpaper.init();
   myBatt.init();
@@ -330,11 +329,19 @@ void setup() {
   }
   else
   {
-    bool process_status = process_list(new_online_fw);
-    if(process_status == false)
+    if(has_valid_config == true)
     {
-      Serial.println(F("NO TABLE FOUND!"));
-      myEpaper.default_mode();
+      bool process_status = process_list(new_online_fw);
+      if(process_status == false)
+      {
+        Serial.println(F("NO TABLE FOUND!"));
+        myEpaper.no_conn();
+      }
+    }
+    else
+    {
+        Serial.println(F("NO CONFIGURATION FOUND!"));
+        myEpaper.config_mode();
     }
   }
 }
