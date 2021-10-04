@@ -10,11 +10,7 @@
 #define ARDUINOTRACE_ENABLE 1
 #include "ArduinoTrace.h"
 
-#ifdef VORRAT_APP
-#define OTA_URL "https://vorrat.sebag.de/esp32/"
-#else
-#define OTA_URL "https://raw.githubusercontent.com/cultur98/ESP32_Vorrat/main/bin.dev/"
-#endif
+
 
 vorratVersion theVersion;
 

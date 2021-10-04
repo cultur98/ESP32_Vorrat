@@ -177,8 +177,7 @@ void Logger::split_lager_list(String payload) {
 #include <HTTPClient.h>
 
 
-#define LAGER_WEB_LINK "https://vorrat.sebag.de/pl/pl.pl?aktion=getmhd&time=J&code="
-#define LAGER_WEB_PORT 443
+
 bool Logger::get_lager_list_server(const char *key, const char *ort) {
   TRACE1();
   HTTPClient http;
@@ -240,8 +239,6 @@ bool Logger::dumpFile(){
 }
 
 #ifndef VORRAT_APP
-#define LAGER_GOOGLE_LINK "https://sheets.googleapis.com/v4/spreadsheets/"
-
 #define PRODUKT_HEADER "Produkt"
 #define LAGERORT_HEADER "Lagerort"
 #define MHD_HEADER "MHD"

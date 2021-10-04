@@ -41,7 +41,17 @@
 
 #define BUF_SIZE 1024
 
+// settings for accessing storage data 
+#define LAGER_WEB_LINK "https://vorrat.net/pl/pl.pl?aktion=getmhd&time=J&code="
+#define LAGER_WEB_PORT 443
 extern int language;
+
+#ifdef VORRAT_APP
+#define OTA_URL "https://vorrat.sebag.de/esp32/"
+#else
+#define OTA_URL "https://raw.githubusercontent.com/cultur98/ESP32_Vorrat/main/bin.dev/"
+#define LAGER_GOOGLE_LINK "https://sheets.googleapis.com/v4/spreadsheets/"
+#endif
 
 #define _ENG_ 0
 #define _GER_ 1
