@@ -176,8 +176,6 @@ void Logger::split_lager_list(String payload) {
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-
-
 bool Logger::get_lager_list_server(const char *key, const char *ort) {
   TRACE1();
   HTTPClient http;

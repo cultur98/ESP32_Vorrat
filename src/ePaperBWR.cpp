@@ -447,7 +447,7 @@ void ePaperBWR::config_mode()
   free(the_string);
 }
 
-void ePaperBWR::no_conn()
+void ePaperBWR::no_conn(char* mess)
 {
   TRACE1();
 
@@ -464,7 +464,7 @@ void ePaperBWR::no_conn()
   if(language == _GER_)
     sprintf(the_string, "Bitte Gerät neu starten.");
   else
-    sprintf(the_string, "Please restart device.");
+    sprintf(the_string, "Please restart device. %s", mess);
   EPD_print_text(12, the_string, X_START, Y_START+Y_OFFSET, false);
 
   sprintf(the_string, "SSID %s", WiFi.SSID().c_str());

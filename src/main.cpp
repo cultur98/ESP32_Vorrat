@@ -39,6 +39,7 @@ bool has_valid_config = false;
 bool new_firmware = false;
 bool timer_wakeup  = false;
 bool wasConnected = true;
+bool isConnected = false;
 
 RTC_DATA_ATTR int bootCount = 0;
 touch_pad_t touchPin;
@@ -52,7 +53,7 @@ void watch_task() {
   char uptime[80];
   int up_seconds = (TICK_TASK_DELAY/1000)* timer_ctr;
   hch_uptime(up_seconds, uptime);
-  bool isConnected = WiFi.isConnected();
+  isConnected = WiFi.isConnected();
 
   Serial.printf("\nisConn %d | wasConn %d | valid_conf %d | timer_wake %d\n",
     isConnected, wasConnected, has_valid_config, timer_wakeup);
@@ -335,8 +336,14 @@ void setup() {
       bool process_status = process_list(new_online_fw);
       if(process_status == false)
       {
+        char mess[MIN_STRING_LEN];
         Serial.println(F("NO TABLE FOUND!"));
-        myEpaper.no_conn();
+        sprintf(mess, "[%d|%d|%d][%d|%d|%d][%d|%d|%d][%d]", 
+          has_valid_config, new_firmware, timer_wakeup, 
+          wasConnected, isConnected, show_config,
+          ota_update, force_ap_mode, new_online_fw,
+          process_status);
+        myEpaper.no_conn(mess);
       }
     }
     else

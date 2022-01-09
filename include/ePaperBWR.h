@@ -16,7 +16,7 @@ public:
   void show_config();
   void show_firmware();
   void config_mode();
-  void no_conn();
+  void no_conn(char*);
   void show_batt(int);
   uint8_t orientation;
 private:
